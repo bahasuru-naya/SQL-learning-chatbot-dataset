@@ -8,12 +8,14 @@ The dataset was designed to capture a wide variety of natural language expressio
 ## Dataset Design
 The dataset consists of annotated natural language training examples organized into multiple intents that represent different categories of user queries. Each intent corresponds to a specific SQL-related operation or learning query.
 
-To improve model generalization and linguistic coverage, **no fewer than thirty (30) distinct examples** were created for each intent. These examples include variations in:
+To improve model generalization and linguistic coverage, **no fewer than ten (10) distinct examples** were created for each intent. These examples include variations in:
 
 - Sentence structure  
 - Lexical choices and synonyms  
 - Query phrasing styles  
 - Parameter ordering within queries  
+
+**Overall, more than 500 distinct training examples were created across all intents**, ensuring sufficient diversity and coverage of possible user expressions.
 
 This diversity enables the NLU model to recognize semantically equivalent queries expressed in different linguistic forms.
 
