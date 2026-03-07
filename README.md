@@ -21,17 +21,17 @@ The assistant provides a modern, user-friendly interface with integrated voice S
 
 ## Architecture & Tech Stack
 
-### 🔹 Backend (Logic & NLU)
+###  Backend (Logic & NLU)
 - **Rasa Open Source**: Manages Natural Language Understanding (NLU) and dialogue policies.
 - **Python SDK (rasa-sdk)**: Handles custom actions for database connectivity.
 - **SQLAlchemy**: ORM used to interface with the MySQL database.
 
-### 🔹 Frontend (User Interface)
+###  Frontend (User Interface)
 - **HTML5 & Vanilla CSS**: Premium, responsive UI design.
 - **JavaScript (ES6+)**: Handles real-time DOM updates and voice processing.
 - **Socket.io**: Enables low-latency, bi-directional communication between the UI and Rasa server.
 
-### 🔹 Database
+###  Database
 - **MySQL**: Persistent storage for stock, prices, and sales data.
 
 ---
@@ -85,10 +85,10 @@ This project includes a comprehensive NLU dataset (located in `data/`) designed 
 
 ---
 
-## 📜 License
+## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## 🤝 Acknowledgments
+## Acknowledgments
 Special thanks to the open-source community for the Rasa framework and SQLAlchemy.
