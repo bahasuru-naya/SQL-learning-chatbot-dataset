@@ -1,0 +1,145 @@
+#### This file contains tests to evaluate that your bot behaves as expected.
+#### If you want to learn more, please see the docs: https://rasa.com/docs/rasa/testing-your-assistant
+
+stories:
+
+- story: Show all tables
+  steps:
+  - user: | 
+      show all tables
+    intent: show_all_tables
+  - action: action_show_all_tables
+
+- story: Show specific table
+  steps:
+  - user: | 
+      show stock
+    intent: show_table
+    entities:
+      - table_name: "stock"
+  - action: action_show_table
+
+- story: Add items to stock
+  steps:
+  - user: |
+      add monitor and 240
+    intent: add_items_stock
+    entities:
+      - item_name: "monitor"
+      - quantity: "240"
+  - action: action_add_items_stock
+
+- story: Add items to price table
+  steps:
+  - user: |
+      add 1 and 1960.00 to price
+    intent: add_items_price
+    entities:
+      - id: "1"
+      - price: "1960.00"
+      - table_name: "price"
+  - action: action_add_items_price
+
+- story: Add items to sales table
+  steps:
+  - user: |
+      add 9 and 34 and 2025-10-3
+    intent: add_items_sales
+    entities:
+      - id: "9"
+      - sales: "34"
+      - date: "2025-10-3"
+  - action: action_add_items_sales
+
+- story: Delete items from stock
+  steps:
+  - user: |
+      remove 12 from stock
+    intent: delete_items_stock
+    entities:
+      - id: "12"
+      - table_name: "stock"
+  - action: action_delete_items_stock
+
+- story: Delete items from price table
+  steps:
+  - user: |
+      delete 1 and 960.00 from price
+    intent: delete_items_price
+    entities:
+      - id: "1"
+      - price: "960.00"
+      - table_name: "price"
+  - action: action_delete_items_price
+
+- story: Delete items from sales table
+  steps:
+  - user: |
+      remove 2 and 289 and 2024-12-31 from sales
+    intent: delete_items_sales
+    entities:
+      - id: "2"
+      - sales: "289"
+      - date: "2024-12-31"
+      - table_name: "sales"
+  - action: action_delete_items_sales
+
+- story: Retrieve data from tables
+  steps:
+  - user: |
+      show details about items where sales >32.
+    intent: retrieve_data_from_tables
+    entities:
+      - table1: "items"
+      - table2: "sales"
+      - condition: ">32"
+  - action: action_retrieve_data_from_tables
+
+- story: Retrieve data from tables
+  steps:
+  - user: |
+      show details about items where sales <=10.
+    intent: retrieve_data_from_tables
+    entities:
+      - table1: "items"
+      - table2: "sales"
+      - condition: "<=10"
+  - action: action_retrieve_data_from_tables
+
+- story: Show another specific table
+  steps:
+  - user: |
+      view price
+    intent: show_table
+    entities:
+      - table_name: "price"
+  - action: action_show_table
+
+- story: Show sales table
+  steps:
+  - user: |
+      show sales
+    intent: show_table
+    entities:
+      - table_name: "sales"
+  - action: action_show_table
+
+
+- story: Add item with special characters
+  steps:
+  - user: |
+      add "USB-C hub" and 30
+    intent: add_items_stock
+    entities:
+      - item_name: "USB-C hub"
+      - quantity: "30"
+  - action: action_add_items_stock
+
+- story: misspell command
+  steps:
+  - user: |
+      sho sales
+    intent: show_table
+    entities:
+      - table_name: "sales"
+  - action: action_show_table

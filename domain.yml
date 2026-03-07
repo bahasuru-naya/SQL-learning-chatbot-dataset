@@ -1,0 +1,69 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - bot_challenge
+  - show_all_tables
+  - show_table
+  - add_items_stock
+  - add_items_price
+  - add_items_sales
+  - update_items_stock
+  - update_items_price
+  - update_items_sales
+  - delete_items_stock
+  - delete_items_price
+  - delete_items_sales
+  - retrieve_specific_data_from_tables
+
+entities:
+    - table_name
+    - item_name
+    - quantity
+    - id
+    - sale_id
+    - price
+    - sales
+    - date
+    - table1
+    - table2
+    - condition
+
+responses:
+  utter_greet:
+    - text: "Hey! welcome ?"
+
+  utter_goodbye:
+    - text: "Bye"
+
+  utter_iamabot:
+    - text: "I am a chatbot, which design for maintain database."
+
+  utter_please_rephrase:
+    - text: "I'm sorry, I didn't quite understand that. Could you rephrase?"
+
+  utter_please_try_again:
+    - text: "I'm sorry, It seems like you're asking a question that is outside the scope of my capabilities.\n
+    Please rephrase your question or try another one. "
+
+actions:
+  - action_show_all_tables
+  - action_show_table
+  - action_add_items_stock
+  - action_add_items_price
+  - action_add_items_sales
+  - action_update_items_stock
+  - action_update_items_price
+  - action_update_items_sales
+  - action_delete_items_stock
+  - action_delete_items_price
+  - action_delete_items_sales
+  - action_retrieve_data_from_tables
+  - action_nlu_fallback
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
