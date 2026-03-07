@@ -1,64 +1,89 @@
-# Dataset Documentation
+# SQL Learning Assistant 🤖💬
 
 ## Overview
-This dataset was developed to train and evaluate the Natural Language Understanding (NLU) component of an AI-powered SQL learning chatbot implemented using the **Rasa framework**. The dataset is structured according to the **Rasa YAML training data specification** and supports tasks such as **intent classification**, **entity recognition**, and **semantic mapping of natural language queries to database operations**.
+**SQL Learning Assistant** is an AI-powered chatbot designed to help students and developers learn SQL through interactive, natural language conversations. Built with the **Rasa framework**, it translates user intents into real-time database operations, allowing users to practice CRUD (Create, Read, Update, Delete) actions and data analysis without needing to write complex SQL syntax manually.
 
-The dataset was designed to capture a wide variety of natural language expressions that students may use when interacting with a SQL learning assistant.
+The assistant provides a modern, user-friendly interface with integrated voice Support, making the learning experience both dynamic and accessible.
 
-## Dataset Design
-The dataset consists of annotated natural language training examples organized into multiple intents that represent different categories of user queries. Each intent corresponds to a specific SQL-related operation or learning query.
+---
 
-To improve model generalization and linguistic coverage, **distinct examples** were created for each intent. These examples include variations in:
+## 🌟 Key Features
+- **Natural Language to SQL**: Interactively query the database using plain English.
+- **Real-time Database Interaction**: Perform `SELECT`, `INSERT`, `UPDATE`, and `DELETE` operations directly through the chat.
+- **Advanced Data Analysis**: Ask for insights like "show details about sales of each item" and get formatted tabular results.
+- **Voice-Enabled Learning**: Built-in **Speech-to-Text** and **Text-to-Speech** (Voice) capabilities for hands-free interaction.
+- **Modern Dashboard**: Responsive web interface with:
+  - **Dark Mode** support for comfortable viewing.
+  - **Database Schema Visualization** to understand table structures.
+  - **Smart Suggestions** to help users get started with common commands.
 
-- Sentence structure  
-- Lexical choices and synonyms  
-- Query phrasing styles  
-- Parameter ordering within queries  
+---
 
-**Overall, more than 500 distinct training examples were created across all intents**, ensuring sufficient diversity and coverage of possible user expressions.
+## 🏗️ Architecture & Tech Stack
 
-This diversity enables the NLU model to recognize semantically equivalent queries expressed in different linguistic forms.
+### 🔹 Backend (Logic & NLU)
+- **Rasa Open Source**: Manages Natural Language Understanding (NLU) and dialogue policies.
+- **Python SDK (rasa-sdk)**: Handles custom actions for database connectivity.
+- **SQLAlchemy**: ORM used to interface with the MySQL database.
 
-## Annotation Structure
+### 🔹 Frontend (User Interface)
+- **HTML5 & Vanilla CSS**: Premium, responsive UI design.
+- **JavaScript (ES6+)**: Handles real-time DOM updates and voice processing.
+- **Socket.io**: Enables low-latency, bi-directional communication between the UI and Rasa server.
 
-### Intents
-Intents represent the **user’s underlying goal** in a query. Examples include requests to retrieve data, apply filtering conditions, or perform SQL-related operations. Each intent contains multiple annotated training examples to support robust classification.
+### 🔹 Database
+- **MySQL**: Persistent storage for stock, prices, and sales data.
 
-### Entities
-Entities are annotated within the natural language examples to identify parameters necessary for query construction. These entities typically correspond to structured database components such as:
+---
 
-- Table names  
-- Column names  
-- Conditions or filters  
-- Attribute values  
+## 🚀 Setup & Installation
 
-Entity annotations allow the chatbot to extract structured information from user queries and convert them into appropriate database operations.
+### 1. Prerequisites
+- Python 3.8 - 3.10
+- MySQL Server
+- Node.js (for Socket.io communication)
 
-### Lookup Tables
-Lookup tables are included to enhance entity recognition performance. These tables contain predefined lists of domain-specific vocabulary, such as database schema elements and SQL-related terminology.
+### 2. Database Configuration
+1. Create a MySQL database named `csitem`.
+2. Ensure your credentials match those in `actions/actions.py` (default: `username: 'root'`, `password: 'bahasurubn0008'`).
+3. Set up your tables (e.g., `stock`, `price`, `sales`).
 
-Lookup tables improve the model’s ability to recognize entities that may appear in multiple linguistic forms.
+### 3. Backend Setup
+Install the required Python dependencies:
+```bash
+pip install -r requirements.txt
+```
 
-## Data Format
-The dataset follows the **Rasa YAML format**, which organizes training data into structured sections including:
+### 4. Running the Assistant
+You need to run the Rasa server and the Action server concurrently.
 
-- `nlu` – Natural language training data  
-- `intent` – User intent definitions  
-- `examples` – Annotated example utterances  
-- `lookup` – Domain-specific vocabulary lists  
+**Start Rasa Server:**
+```bash
+rasa run --enable-api --cors "*"
+```
 
-This structure ensures compatibility with the **Rasa NLU training pipeline**.
+**Start Custom Actions Server:**
+```bash
+rasa run actions
+```
 
-## Dataset Purpose
-The dataset enables the chatbot to:
+### 5. Frontend Deployment
+Simply open `Frontend/index.html` in your web browser. Ensure the Rasa server is running on `http://localhost:5005`.
 
-- Accurately classify user intents  
-- Extract relevant entities from natural language queries  
-- Interpret SQL-related requests expressed in conversational language  
-- Support interactive learning of SQL concepts
+---
 
-## Reproducibility
-The dataset is publicly provided to support **reproducibility of the experimental results reported in the associated research study**. Researchers and developers may use this dataset to replicate the training process, evaluate NLU performance, or extend the chatbot with additional intents and entities.
+## 📊 Dataset & Research
+This project includes a comprehensive NLU dataset (located in `data/`) designed for training SQL learning assistants.
+- **500+ Examples**: Diverse phrasing for intent classification and entity recognition.
+- **Annotated Entities**: Extracts table names, quantities, IDs, and conditions from user queries.
+- **Lookup Tables**: Enhances recognition of domain-specific SQL terminology.
 
-## Limitations
-Although the dataset includes diverse phrasing variations, it is primarily focused on **SQL learning interactions within a controlled domain**. Future work may extend the dataset by incorporating additional query types, expanded vocabulary, and multilingual training examples.
+---
+
+## 📜 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🤝 Acknowledgments
+Special thanks to the open-source community for the Rasa framework and SQLAlchemy.
