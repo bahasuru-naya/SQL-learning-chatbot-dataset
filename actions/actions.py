@@ -7,7 +7,7 @@ import time
 
 def create_sql_connection():
     username = 'root'
-    password = 'bahasurubn0008'
+    password = 'password'
     host = 'localhost'
     port = 3306
     database = 'csitem'

@@ -1,4 +1,4 @@
-# SQL Learning Assistant 🤖💬
+# SQL Learning Assistant 
 
 ## Overview
 **SQL Learning Assistant** is an AI-powered chatbot designed to help students and developers learn SQL through interactive, natural language conversations. Built with the **Rasa framework**, it translates user intents into real-time database operations, allowing users to practice CRUD (Create, Read, Update, Delete) actions and data analysis without needing to write complex SQL syntax manually.
@@ -7,7 +7,7 @@ The assistant provides a modern, user-friendly interface with integrated voice S
 
 ---
 
-## 🌟 Key Features
+##  Key Features
 - **Natural Language to SQL**: Interactively query the database using plain English.
 - **Real-time Database Interaction**: Perform `SELECT`, `INSERT`, `UPDATE`, and `DELETE` operations directly through the chat.
 - **Advanced Data Analysis**: Ask for insights like "show details about sales of each item" and get formatted tabular results.
@@ -19,7 +19,7 @@ The assistant provides a modern, user-friendly interface with integrated voice S
 
 ---
 
-## 🏗️ Architecture & Tech Stack
+## Architecture & Tech Stack
 
 ### 🔹 Backend (Logic & NLU)
 - **Rasa Open Source**: Manages Natural Language Understanding (NLU) and dialogue policies.
@@ -36,16 +36,15 @@ The assistant provides a modern, user-friendly interface with integrated voice S
 
 ---
 
-## 🚀 Setup & Installation
+## Setup & Installation
 
 ### 1. Prerequisites
-- Python 3.8 - 3.10
+- Python 3.7 
 - MySQL Server
-- Node.js (for Socket.io communication)
 
 ### 2. Database Configuration
 1. Create a MySQL database named `csitem`.
-2. Ensure your credentials match those in `actions/actions.py` (default: `username: 'root'`, `password: 'bahasurubn0008'`).
+2. Ensure your credentials match those in `actions/actions.py` (default: `username: 'root'`, `password: 'password'`).
 3. Set up your tables (e.g., `stock`, `price`, `sales`).
 
 ### 3. Backend Setup
@@ -54,7 +53,13 @@ Install the required Python dependencies:
 pip install -r requirements.txt
 ```
 
-### 4. Running the Assistant
+### 4. Training the Model
+Before running the assistant for the first time or after making changes to the training data, you must train the models:
+```bash
+rasa train
+```
+
+### 5. Running the Assistant
 You need to run the Rasa server and the Action server concurrently.
 
 **Start Rasa Server:**
@@ -67,12 +72,12 @@ rasa run --enable-api --cors "*"
 rasa run actions
 ```
 
-### 5. Frontend Deployment
+### 6. Frontend Deployment
 Simply open `Frontend/index.html` in your web browser. Ensure the Rasa server is running on `http://localhost:5005`.
 
 ---
 
-## 📊 Dataset & Research
+##  Dataset & Research
 This project includes a comprehensive NLU dataset (located in `data/`) designed for training SQL learning assistants.
 - **500+ Examples**: Diverse phrasing for intent classification and entity recognition.
 - **Annotated Entities**: Extracts table names, quantities, IDs, and conditions from user queries.
