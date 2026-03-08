@@ -1,5 +1,7 @@
 # SQL Learning Assistant Chatbot
 
+<img width="1608" height="862" alt="image" src="https://github.com/user-attachments/assets/c6ab4cdd-75ae-4fa8-9334-570a156dd995" />
+
 ## Overview
 **SQL Learning Assistant Chatbot** is an AI-powered chatbot designed to help students and developers learn SQL through interactive, natural language conversations. Built with the **Rasa framework**, it translates user intents into real-time database operations, allowing users to practice CRUD (Create, Read, Update, Delete) actions and data analysis without needing to write complex SQL syntax manually.
 
