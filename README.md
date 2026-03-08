@@ -90,7 +90,4 @@ This project includes a comprehensive NLU dataset (located in `data/`) designed 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
----
 
-## Acknowledgments
-Special thanks to the open-source community for the Rasa framework and SQLAlchemy.
